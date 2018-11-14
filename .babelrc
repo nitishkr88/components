@@ -1,0 +1,34 @@
+{
+  "presets": ["@babel/preset-react", "@babel/preset-env"],
+  "env": {
+    "development": {
+      "plugins": [
+        "lodash",
+        "@babel/plugin-transform-modules-commonjs",
+        "@babel/plugin-proposal-class-properties"
+      ]
+    },
+    "test": {
+      "plugins": [
+        "lodash",
+        "@babel/plugin-transform-modules-commonjs",
+        "@babel/plugin-proposal-class-properties",
+        "istanbul"
+      ]
+    },
+    "production": {
+      "plugins": [
+        "lodash",
+        "@babel/plugin-transform-modules-commonjs",
+        "@babel/plugin-proposal-class-properties"
+      ]
+    },
+    "es": {
+      "plugins": [
+        "lodash",
+        "./babel-lodash-es",
+        "@babel/plugin-proposal-class-properties"
+      ]
+    }
+  }
+}
