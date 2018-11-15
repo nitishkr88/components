@@ -18,7 +18,7 @@ const baseColors = {
 }
 
 const THEMES = { light: 'light', dark: 'dark' }
-const defaultTheme = THEMES.dark
+const defaultTheme = THEMES.light
 
 export default baseColors
 export { THEMES, defaultTheme }
