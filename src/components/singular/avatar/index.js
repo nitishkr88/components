@@ -1,8 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+
 import spaces from '../../../parameters/spaces'
 import Image from '../image'
+
+import getColors from '../../../_utils/colors'
+import { withTheme } from '../../../hoc'
+
+const componentName = 'avatar'
 
 const sizes = {
   small: '24px',
@@ -16,27 +22,36 @@ const getInitialsFromName = name => {
   return initials
 }
 
+const getColorProperties = props => {
+  const color = getColors(props, componentName)
+  return {
+    color: color.text,
+    backgroundColor: color.background,
+    border: '1px solid ' + color.border
+  }
+}
+
 const Avatar = props => {
   if (props.name && props.image) {
     return (
       <Container>
         <Element {...props}>
-          <Image src={props.image} />
+          <Image source={props.image} />
         </Element>
-        {props.showName && <span>{props.name}</span>}
+        {props.showName && <Text {...props}>{props.name}</Text>}
       </Container>
     )
   } else if (props.name && !props.image) {
     return (
       <Container>
         <Element {...props}>{getInitialsFromName(props.name)}</Element>
-        {props.showName && <span>{props.name}</span>}
+        {props.showName && <Text {...props}>{props.name}</Text>}
       </Container>
     )
   } else {
     return (
       <Element {...props}>
-        <Image src={props.image} />
+        <Image source={props.image} />
       </Element>
     )
   }
@@ -51,8 +66,10 @@ const Container = styled.div`
 const Element = styled.div`
   width: ${props => sizes[props.size]};
   height: ${props => sizes[props.size]};
-  border: #D4D5D6;
-  background-color: #D4D5D6;
+
+  color: ${props => getColorProperties(props).color};
+  background-color: ${props => getColorProperties(props).backgroundColor};
+  border: ${props => getColorProperties(props).border};
 
   border-radius: 50%;
   text-align: center;
@@ -65,7 +82,12 @@ const Element = styled.div`
 
   img {
     height: 100%;
+    width: 100%;
   }
+`
+
+const Text = styled.span`
+  color: ${props => getColorProperties(props).color};
 `
 
 Avatar.propTypes = {
@@ -86,4 +108,4 @@ Avatar.defaultProps = {
   showName: true
 }
 
-export default Avatar
+export default withTheme(Avatar)

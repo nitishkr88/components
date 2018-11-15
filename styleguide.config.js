@@ -12,7 +12,7 @@ var config = {
   styles: {
     StyleGuide: {
       '@global body': {
-        fontFamily: 'Montserrat',
+        fontFamily: 'Montserrat, helvetica, arial, sans-serif',
         fontSize: '14px'
       }
     }

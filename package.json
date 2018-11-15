@@ -69,6 +69,7 @@
     "webpack-cli": "^3.1.2"
   },
   "dependencies": {
+    "hoist-non-react-statics": "^3.1.0",
     "lodash": "^4.17.11",
     "lodash-es": "^4.17.11",
     "prop-types": "^15.6.2",

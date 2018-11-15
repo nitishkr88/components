@@ -30,9 +30,9 @@ class ProgressiveImage extends React.Component {
   render() {
     return (
       <ProgressiveImage.Element
+        {...this.props}
         src={this.state.source}
         alt={this.props.alt}
-        {...this.props}
       />
     )
   }
