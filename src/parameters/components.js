@@ -13,6 +13,15 @@ const avatar = {
   }
 }
 
+const icon = {
+  [THEMES.light]: {
+    color: colors.lightBlack
+  },
+  [THEMES.dark]: {
+    color: colors.ashGrey
+  }
+}
+
 const textInput = {
   [THEMES.light]: {
     background: colors.transparent,
@@ -38,4 +47,4 @@ const textInput = {
   }
 }
 
-export { avatar, textInput }
+export { avatar, icon, textInput }
