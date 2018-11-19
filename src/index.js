@@ -4,7 +4,8 @@ import {
   Icon,
   Image,
   Placeholder,
+  Radio,
   TextInput
 } from './components'
 
-export { Avatar, Checkbox, Icon, Image, Placeholder, TextInput }
+export { Avatar, Checkbox, Icon, Image, Placeholder, Radio, TextInput }
