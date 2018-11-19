@@ -13,6 +13,19 @@ const avatar = {
   }
 }
 
+const checkbox = {
+  [THEMES.light]: {
+    background: colors.white,
+    backgroundDisabled: colors.lighterGrey,
+    backgroundSelected: colors.blue,
+    border: colors.ashGrey,
+    borderSelected: colors.blue,
+    shadow: 'rgba(0,0,0,0.20)',
+    shadowDisabled: 'rgba(0,0,0,0.10)'
+  },
+  [THEMES.dark]: {}
+}
+
 const icon = {
   [THEMES.light]: {
     color: colors.lightBlack
@@ -53,4 +66,4 @@ const input = {
   }
 }
 
-export { avatar, icon, input }
+export { avatar, checkbox, icon, input }

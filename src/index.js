@@ -1,3 +1,10 @@
-import { Avatar, Icon, Image, Placeholder, TextInput } from './components'
+import {
+  Avatar,
+  Checkbox,
+  Icon,
+  Image,
+  Placeholder,
+  TextInput
+} from './components'
 
-export { Avatar, Icon, Image, Placeholder, TextInput }
+export { Avatar, Checkbox, Icon, Image, Placeholder, TextInput }

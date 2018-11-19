@@ -78,7 +78,7 @@ const Element = styled.div`
   justify-content: center;
 
   overflow: hidden;
-  margin-right: ${props => (props.name ? spaces.small : null)};
+  margin-right: ${props => (props.name ? spaces.xsmall : null)};
 
   img {
     height: 100%;
