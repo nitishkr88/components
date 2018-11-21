@@ -13,6 +13,42 @@ const avatar = {
   }
 }
 
+const button = {
+  [THEMES.light]: {
+    primary: {
+      background: '#44C7F4',
+      backgroundHover: '#13B7ED',
+      backgroundFocus: '#13B7ED',
+      backgroundActive: '#11A7D9',
+      text: '#FAFAFA',
+      icon: 'white',
+      border: '#44C7F4',
+      borderHover: '#13B7ED',
+      borderFocus: '#13B7ED',
+      borderActive: '#11A7D9'
+    },
+    secondary: {
+      background: 'transparent',
+      backgroundHover: 'rgba(0,0,0,0.05)',
+      backgroundFocus: 'rgba(0,0,0,0.05)',
+      backgroundActive: '#DADADA',
+      text: '#333',
+      icon: 'default',
+      border: '#D0D2D3',
+      borderHover: '#B5B7B8',
+      borderFocus: '#B5B7B8',
+      borderActive: '#DADADA'
+    },
+    link: {
+      text: '#0a84ae',
+      icon: 'blue',
+      hover: '#0a84ae',
+      focus: '#0a84ae'
+    }
+  },
+  [THEMES.dark]: {}
+}
+
 const checkbox = {
   [THEMES.light]: {
     background: colors.white,
@@ -66,4 +102,4 @@ const input = {
   }
 }
 
-export { avatar, checkbox, icon, input }
+export { avatar, button, checkbox, icon, input }
