@@ -24,3 +24,31 @@ const getColorProperties = props => {
     return acc
   }, {})
 }
+
+const Button = props => {}
+
+Button.Element = styled.button``
+
+Button.propTypes = {
+  /** The visual cue */
+  view: PropTypes.oneOf(['primary', 'secondary', 'link']),
+  /** Icon to be rendered. Aligned left */
+  icon: PropTypes.string,
+  /** Icon to be rendered. Aligned Right */
+  rightIcon: PropTypes.string,
+  /** Disables the button */
+  disabled: PropTypes.bool,
+  /** URL to naviagte to */
+  href: PropTypes.string,
+  /** Where to open the navigated document */
+  target: PropTypes.oneOf(['_blank', '_self', '_parent', '_top'])
+}
+
+Button.defaultProps = {
+  view: 'primary',
+  icon: null,
+  rightIcon: null,
+  disabled: false
+}
+
+export default Button
