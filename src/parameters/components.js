@@ -16,6 +16,18 @@ const avatar = {
 const button = {
   [THEMES.light]: {
     primary: {
+      background: '#F1F1F1',
+      backgroundHover: '#E9E8E8',
+      backgroundFocus: '#E9E8E8',
+      backgroundActive: '#DADADA',
+      text: '#333',
+      icon: 'default',
+      border: '#F1F1F1',
+      borderHover: '#E9E8E8',
+      borderFocus: '#E9E8E8',
+      borderActive: '#DADADA'
+    },
+    secondary: {
       background: '#44C7F4',
       backgroundHover: '#13B7ED',
       backgroundFocus: '#13B7ED',
@@ -27,7 +39,7 @@ const button = {
       borderFocus: '#13B7ED',
       borderActive: '#11A7D9'
     },
-    secondary: {
+    transparent: {
       background: 'transparent',
       backgroundHover: 'rgba(0,0,0,0.05)',
       backgroundFocus: 'rgba(0,0,0,0.05)',
@@ -40,10 +52,14 @@ const button = {
       borderActive: '#DADADA'
     },
     link: {
+      background: 'transparent',
+      backgroundHover: 'transparent',
+      backgroundFocus: 'transparent',
       text: '#0a84ae',
       icon: 'blue',
-      hover: '#0a84ae',
-      focus: '#0a84ae'
+      border: 'transparent',
+      borderHover: 'transparent',
+      borderFocus: 'transparent'
     }
   },
   [THEMES.dark]: {}

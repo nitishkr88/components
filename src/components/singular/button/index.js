@@ -6,6 +6,7 @@ import spaces from '../../../parameters/spaces'
 import fonts from '../../../parameters/fonts'
 import getColors from '../../../_utils/colors'
 import Icon, { StyledIcon } from '../icon'
+import { withTheme } from '../../../hoc'
 
 const componentName = 'button'
 
@@ -13,9 +14,11 @@ const properties = [
   'text',
   'icon',
   'background',
+  'backgroundActive',
   'backgroundHover',
   'backgroundFocus',
   'border',
+  'borderActive',
   'borderHover',
   'borderFocus',
   'borderActive'
@@ -66,13 +69,13 @@ Button.Element = styled.button`
   font-size: 13px;
   font-weight: ${fonts.weight.medium};
 
-  background: '';
-  border: '';
+  background: ${props => getColorProperties(props).background};
+  border: ${props => getColorProperties(props).border};
   border-radius: 3px;
 
-  color: '';
+  color: ${props => getColorProperties(props).text};
 
-  padding: '';
+  padding: ${spaces.xsmall};
 
   opacity: ${props => (props.disabled ? 0.5 : 1)};
   cursor: ${props => (props.disabled ? 'not-allowed' : 'pointer')};
@@ -81,24 +84,23 @@ Button.Element = styled.button`
   transition: border-color 0.25s, background 0.25s;
 
   ${StyledIcon} {
-    color: '';
+    color: ${props => getColorProperties(props).icon};
   }
 
   &:hover {
-    color: '';
-    background: '';
-    border-color: '';
+    background: ${props => getColorProperties(props).backgroundHover};
+    border-color: ${props => getColorProperties(props).borderHover};
   }
 
   &:focus {
-    background: '';
-    border-color: '';
+    background: ${props => getColorProperties(props).backgroundFocus};
+    border-color: ${props => getColorProperties(props).borderFocus};
     outline: none;
   }
 
   &:active {
-    background: '';
-    border-color: '';
+    background: ${props => getColorProperties(props).backgroundActive};
+    border-color: ${props => getColorProperties(props).borderActive};
     outline: none;
   }
 `
@@ -125,7 +127,7 @@ Button.LinkElement = styled(Button.Element)`
 
 Button.propTypes = {
   /** The visual cue */
-  view: PropTypes.oneOf(['primary', 'secondary', 'link']),
+  view: PropTypes.oneOf(['primary', 'secondary', 'transparent', 'link']),
   /** Icon to be rendered. Aligned left */
   leftIcon: PropTypes.string,
   /** Icon to be rendered. Aligned Right */
@@ -145,4 +147,4 @@ Button.defaultProps = {
   disabled: false
 }
 
-export default Button
+export default withTheme(Button)
