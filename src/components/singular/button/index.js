@@ -1,7 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+
+import spaces from '../../../parameters/spaces'
+import fonts from '../../../parameters/fonts'
 import getColors from '../../../_utils/colors'
+import Icon, { StyledIcon } from '../icon'
 
 const componentName = 'button'
 
@@ -25,15 +29,105 @@ const getColorProperties = props => {
   }, {})
 }
 
-const Button = props => {}
+const Button = props => {
+  let content = []
 
-Button.Element = styled.button``
+  if (props.leftIcon) {
+    content.push(<Icon key="left-icon" name={props.leftIcon} />)
+  }
+
+  content.push(<Button.Content key="content">{props.children}</Button.Content>)
+
+  if (props.rightIcon) {
+    content.push(<Icon key="right-icon" name={props.rightIcon} />)
+  }
+
+  return props.href ? (
+    <Button.LinkElement as="a" {...props}>
+      {content}
+    </Button.LinkElement>
+  ) : (
+    <Button.Element {...props}>{content}</Button.Element>
+  )
+}
+
+Button.Element = styled.button`
+  display: inline-flex;
+  vertical-align: middle;
+  align-items: center;
+  justify-content: center;
+
+  margin-left: 0;
+  margin-top: 0;
+
+  text-transform: uppercase;
+  white-space: nowrap;
+  letter-spacing: 1px;
+  font-size: 13px;
+  font-weight: ${fonts.weight.medium};
+
+  background: '';
+  border: '';
+  border-radius: 3px;
+
+  color: '';
+
+  padding: '';
+
+  opacity: ${props => (props.disabled ? 0.5 : 1)};
+  cursor: ${props => (props.disabled ? 'not-allowed' : 'pointer')};
+  pointer-events: ${props => (props.disabled ? 'none' : null)};
+
+  transition: border-color 0.25s, background 0.25s;
+
+  ${StyledIcon} {
+    color: '';
+  }
+
+  &:hover {
+    color: '';
+    background: '';
+    border-color: '';
+  }
+
+  &:focus {
+    background: '';
+    border-color: '';
+    outline: none;
+  }
+
+  &:active {
+    background: '';
+    border-color: '';
+    outline: none;
+  }
+`
+
+Button.Content = styled.span`
+  display: inline-block;
+  vertical-align: middle;
+  /* margin-top: 2px; */
+`
+
+Button.LinkElement = styled(Button.Element)`
+  display: table;
+  text-decoration: none;
+
+  ${Button.Content} {
+    display: table-cell;
+  }
+  ${StyledIcon} {
+    display: table-cell;
+    vertical-align: middle;
+    padding-right: ${props => (props.children ? spaces.xsmall : 0)};
+  }
+`
 
 Button.propTypes = {
   /** The visual cue */
   view: PropTypes.oneOf(['primary', 'secondary', 'link']),
   /** Icon to be rendered. Aligned left */
-  icon: PropTypes.string,
+  leftIcon: PropTypes.string,
   /** Icon to be rendered. Aligned Right */
   rightIcon: PropTypes.string,
   /** Disables the button */
@@ -46,7 +140,7 @@ Button.propTypes = {
 
 Button.defaultProps = {
   view: 'primary',
-  icon: null,
+  leftIcon: null,
   rightIcon: null,
   disabled: false
 }

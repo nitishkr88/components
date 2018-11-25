@@ -31,3 +31,4 @@ Icon.defaultProps = {
 }
 
 export default withTheme(Icon)
+export { StyledIcon }
