@@ -39,7 +39,10 @@ const Button = props => {
     content.push(<Icon key="left-icon" name={props.leftIcon} />)
   }
 
-  content.push(<Button.Content key="content">{props.children}</Button.Content>)
+  props.children &&
+    content.push(
+      <Button.Content key="content">{props.children}</Button.Content>
+    )
 
   if (props.rightIcon) {
     content.push(<Icon key="right-icon" name={props.rightIcon} />)
@@ -70,7 +73,7 @@ Button.Element = styled.button`
   font-weight: ${fonts.weight.medium};
 
   background: ${props => getColorProperties(props).background};
-  border: ${props => getColorProperties(props).border};
+  border: 1px solid ${props => getColorProperties(props).border};
   border-radius: 3px;
 
   color: ${props => getColorProperties(props).text};
@@ -82,6 +85,10 @@ Button.Element = styled.button`
   pointer-events: ${props => (props.disabled ? 'none' : null)};
 
   transition: border-color 0.25s, background 0.25s;
+
+  > *:not(:last-child):not(:only-child) {
+    margin-right: ${props => (props.children ? spaces.xsmall : 0)};
+  }
 
   ${StyledIcon} {
     color: ${props => getColorProperties(props).icon};
@@ -127,7 +134,7 @@ Button.LinkElement = styled(Button.Element)`
 
 Button.propTypes = {
   /** The visual cue */
-  view: PropTypes.oneOf(['primary', 'secondary', 'transparent', 'link']),
+  view: PropTypes.oneOf(['primary', 'secondary', 'link']),
   /** Icon to be rendered. Aligned left */
   leftIcon: PropTypes.string,
   /** Icon to be rendered. Aligned Right */
