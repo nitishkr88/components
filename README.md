@@ -26,7 +26,7 @@ npm run styleguide
 - [x] Radio
 - [x] TextInput
 - [ ] Text
-- [ ] Button
+- [x] Button
 - [ ] Dropdown
 - [ ] Breadcrumb
 - [ ] Dialog
