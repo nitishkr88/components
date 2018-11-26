@@ -18,7 +18,8 @@ const getColorProperties = props => {
     backgroundSelected: colors.backgroundSelected,
     border: colors.border,
     borderSelected: colors.borderSelected,
-    shadow: props.readOnly ? colors.shadowDisabled : colors.shadow
+    shadow: props.readOnly ? colors.shadowDisabled : colors.shadow,
+    text: colors.text
   }
 }
 
@@ -43,6 +44,7 @@ const StyledCheckboxOption = styled.label`
 
   ${Label} {
     opacity: ${props => (props.readOnly ? 0.5 : null)};
+    color: ${props => getColorProperties(props).text};
   }
 
   ${CheckMark} {

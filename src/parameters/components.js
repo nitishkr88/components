@@ -55,15 +55,25 @@ const button = {
 
 const checkbox = {
   [THEMES.light]: {
+    text: colors.black,
     background: colors.white,
     backgroundDisabled: colors.lighterGrey,
-    backgroundSelected: colors.blue,
+    backgroundSelected: colors.lightBlue,
     border: colors.ashGrey,
-    borderSelected: colors.blue,
+    borderSelected: colors.lightBlue,
     shadow: 'rgba(0,0,0,0.20)',
     shadowDisabled: 'rgba(0,0,0,0.10)'
   },
-  [THEMES.dark]: {}
+  [THEMES.dark]: {
+    text: colors.white,
+    background: colors.white,
+    backgroundDisabled: colors.lighterGrey,
+    backgroundSelected: colors.lightBlue,
+    border: colors.ashGrey,
+    borderSelected: colors.lightBlue,
+    shadow: 'rgba(0,0,0,0.20)',
+    shadowDisabled: 'rgba(0,0,0,0.10)'
+  }
 }
 
 const icon = {
