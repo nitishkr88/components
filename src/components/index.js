@@ -1,9 +1,9 @@
-import Avatar from './singular/avatar'
-import Checkbox from './singular/checkbox'
-import Icon from './singular/icon'
-import Image from './singular/image'
-import Placeholder from './singular/placeholder'
-import Radio from './singular/radio'
-import TextInput from './singular/text-input'
+import Avatar from './avatar'
+import Checkbox from './checkbox'
+import Icon from './icon'
+import Image from './image'
+import Placeholder from './placeholder'
+import Radio from './radio'
+import TextInput from './text-input'
 
 export { Avatar, Checkbox, Icon, Image, Placeholder, Radio, TextInput }

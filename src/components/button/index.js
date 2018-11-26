@@ -2,11 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import spaces from '../../../parameters/spaces'
-import fonts from '../../../parameters/fonts'
-import getColors from '../../../_utils/colors'
+import spaces from '../../parameters/spaces'
+import fonts from '../../parameters/fonts'
+import getColors from '../../_utils/colors'
 import Icon, { StyledIcon } from '../icon'
-import { withTheme } from '../../../hoc'
+import { withTheme } from '../../hoc'
 
 const componentName = 'button'
 

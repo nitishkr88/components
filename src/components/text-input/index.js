@@ -3,11 +3,11 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import _noop from 'lodash/noop'
 
-import fonts from '../../../parameters/fonts'
-import getColors from '../../../_utils/colors'
-import spaces from '../../../parameters/spaces'
-import { withTheme } from '../../../hoc'
-import uniqueId from '../../../_utils/uniqueId'
+import fonts from '../../parameters/fonts'
+import getColors from '../../_utils/colors'
+import spaces from '../../parameters/spaces'
+import { withTheme } from '../../hoc'
+import uniqueId from '../../_utils/uniqueId'
 
 const componentName = 'input'
 

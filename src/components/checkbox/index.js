@@ -3,11 +3,11 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import _noop from 'lodash/noop'
 
-import fonts from '../../../parameters/fonts'
-import spaces from '../../../parameters/spaces'
-import { withTheme } from '../../../hoc'
-import getColors from '../../../_utils/colors'
-import baseColors from '../../../parameters/colors'
+import fonts from '../../parameters/fonts'
+import spaces from '../../parameters/spaces'
+import { withTheme } from '../../hoc'
+import getColors from '../../_utils/colors'
+import baseColors from '../../parameters/colors'
 
 const componentName = 'checkbox'
 
@@ -25,7 +25,7 @@ const getColorProperties = props => {
 const CheckMark = styled.span``
 const Label = styled.span``
 
-const StyledRadioOption = styled.label`
+const StyledCheckboxOption = styled.label`
   position: relative;
   cursor: pointer;
   margin-bottom: 0;
@@ -55,7 +55,7 @@ const StyledRadioOption = styled.label`
     background-color: ${props => getColorProperties(props).background};
     border: 1px solid ${props => getColorProperties(props).border};
     box-shadow: inset 0 1px 2px 0 ${props => getColorProperties(props).shadow};
-    border-radius: 50%;
+    border-radius: 2px;
   }
 
   &:hover input ~ ${CheckMark} {
@@ -82,12 +82,13 @@ const StyledRadioOption = styled.label`
   }
 
   ${CheckMark}::after {
-    width: 6px;
-    height: 6px;
-    background-color: ${baseColors.white};
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    left: 50%;
+    box-sizing: content-box;
+    width: 4px;
+    height: 8px;
+    border: solid ${baseColors.white};
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg) translate(-50%, -50%);
+    left: 20%;
     top: 50%;
   }
 `
@@ -98,7 +99,7 @@ const justifyContent = {
 }
 
 const StyledGroup = styled.div`
-  ${StyledRadioOption} {
+  ${StyledCheckboxOption} {
     display: ${props =>
       props.align === 'horizontal' ? 'inline-block' : 'table'};
     ${props => justifyContent[props.align]};
@@ -109,27 +110,29 @@ const StyledGroup = styled.div`
   }
 `
 
-const Radio = props => (
-  <StyledRadioOption readOnly={props.readOnly} theme={props.theme}>
+const Checkbox = props => (
+  <StyledCheckboxOption readOnly={props.readOnly} theme={props.theme}>
     <input
-      type="radio"
+      type="checkbox"
       name={props.name}
       value={props.value}
       checked={props.checked}
+      defaultChecked={props.defaultChecked}
       onChange={props.onChange}
       readOnly
     />
     <CheckMark />
     <Label>{props.children}</Label>
-  </StyledRadioOption>
+  </StyledCheckboxOption>
 )
 
-Radio.Group = props => (
+Checkbox.Group = props => (
   <StyledGroup {...props}>
     {React.Children.map(props.children, child => {
       return React.cloneElement(child, {
         name: props.name,
-        checked: props.selected === child.props.value,
+        defaultChecked: props.selected.indexOf(child.props.value) > -1,
+        checked: props.checked,
         readOnly: props.readOnly || child.props.readOnly,
         onChange: evt => {
           evt.stopPropagation()
@@ -140,15 +143,15 @@ Radio.Group = props => (
   </StyledGroup>
 )
 
-Radio.Group.defaultProps = {
+Checkbox.Group.defaultProps = {
   align: 'vertical',
   onChange: _noop
 }
 
-Radio.propTypes = {
+Checkbox.propTypes = {
   /** Layout Direction */
   align: PropTypes.oneOf(['horizontal', 'vertical']),
-  /** Name of Radio (should be unique) */
+  /** Name of Checkbox (should be unique) */
   name: PropTypes.string.isRequired,
   /** value of Checkbox */
   value: PropTypes.string.isRequired,
@@ -160,9 +163,9 @@ Radio.propTypes = {
   onChange: PropTypes.func
 }
 
-Radio.defaultProps = {
+Checkbox.defaultProps = {
   align: 'vertical',
   onChange: _noop
 }
 
-export default withTheme(Radio)
+export default withTheme(Checkbox)

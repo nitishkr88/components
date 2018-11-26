@@ -2,11 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-import spaces from '../../../parameters/spaces'
+import spaces from '../../parameters/spaces'
 import Image from '../image'
 
-import getColors from '../../../_utils/colors'
-import { withTheme } from '../../../hoc'
+import getColors from '../../_utils/colors'
+import { withTheme } from '../../hoc'
 
 const componentName = 'avatar'
 

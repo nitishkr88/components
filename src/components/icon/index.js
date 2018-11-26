@@ -2,8 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import getColors from '../../../_utils/colors'
-import { withTheme } from '../../../hoc'
+import getColors from '../../_utils/colors'
+import { withTheme } from '../../hoc'
 
 const componentName = 'icon'
 
