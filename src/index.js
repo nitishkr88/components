@@ -3,10 +3,23 @@ import {
   Checkbox,
   Icon,
   Image,
+  Modal,
   Placeholder,
   Radio,
   Spinner,
-  TextInput
+  TextInput,
+  Tooltip
 } from './components'
 
-export { Avatar, Checkbox, Icon, Image, Placeholder, Radio, Spinner, TextInput }
+export {
+  Avatar,
+  Checkbox,
+  Icon,
+  Image,
+  Modal,
+  Placeholder,
+  Radio,
+  Spinner,
+  TextInput,
+  Tooltip
+}

@@ -30,7 +30,7 @@ npm run styleguide
 - [ ] Dropdown
 - [ ] Breadcrumb
 - [ ] Dialog
-- [ ] Overlay
+- [x] Modal
 - [x] Spinner
 - [ ] Tabs
 - [ ] TextArea
