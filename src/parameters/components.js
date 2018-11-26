@@ -50,7 +50,42 @@ const button = {
       borderFocus: colors.transparent
     }
   },
-  [THEMES.dark]: {}
+  [THEMES.dark]: {
+    primary: {
+      background: colors.lightBlue,
+      backgroundHover: colors.blue,
+      backgroundFocus: colors.blue,
+      backgroundActive: colors.blue,
+      text: colors.white,
+      icon: colors.white,
+      border: colors.lightBlue,
+      borderHover: colors.blue,
+      borderFocus: colors.blue,
+      borderActive: colors.blue
+    },
+    secondary: {
+      background: colors.lightGrey,
+      backgroundHover: colors.grey,
+      backgroundFocus: colors.grey,
+      backgroundActive: colors.grey,
+      text: colors.black,
+      icon: colors.lightBlack,
+      border: colors.transparent,
+      borderHover: colors.transparent,
+      borderFocus: colors.transparent,
+      borderActive: colors.transparent
+    },
+    link: {
+      background: colors.transparent,
+      backgroundHover: colors.transparent,
+      backgroundFocus: colors.transparent,
+      text: colors.white,
+      icon: colors.white,
+      border: colors.transparent,
+      borderHover: colors.transparent,
+      borderFocus: colors.transparent
+    }
+  }
 }
 
 const checkbox = {
