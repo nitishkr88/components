@@ -34,7 +34,7 @@ npm run styleguide
 - [x] Spinner
 - [ ] Tabs
 - [ ] TextArea
-- [ ] Tooltip
+- [x] Tooltip
 - [ ] Switch
 - [ ] Table
 - [ ] Form

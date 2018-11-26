@@ -162,4 +162,15 @@ const spinner = {
   }
 }
 
-export { avatar, button, checkbox, icon, input, spinner }
+const tooltip = {
+  [THEMES.light]: {
+    background: colors.lightGrey,
+    text: colors.black
+  },
+  [THEMES.dark]: {
+    background: colors.ashGrey,
+    text: colors.white
+  }
+}
+
+export { avatar, button, checkbox, icon, input, spinner, tooltip }
