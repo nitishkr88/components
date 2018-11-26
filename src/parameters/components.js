@@ -106,4 +106,15 @@ const input = {
   }
 }
 
-export { avatar, button, checkbox, icon, input }
+const spinner = {
+  [THEMES.light]: {
+    color: colors.grey,
+    highlight: colors.lighterBlack
+  },
+  [THEMES.dark]: {
+    color: colors.ashGrey,
+    highlight: colors.white
+  }
+}
+
+export { avatar, button, checkbox, icon, input, spinner }
