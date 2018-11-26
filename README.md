@@ -31,7 +31,7 @@ npm run styleguide
 - [ ] Breadcrumb
 - [ ] Dialog
 - [ ] Overlay
-- [ ] Spinner
+- [x] Spinner
 - [ ] Tabs
 - [ ] TextArea
 - [ ] Tooltip
