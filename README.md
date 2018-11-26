@@ -26,8 +26,10 @@ npm run styleguide
 - [x] Radio
 - [x] TextInput
 - [ ] Text
+- [ ] Heading
 - [x] Button
 - [ ] Dropdown
+- [ ] Popover
 - [ ] Breadcrumb
 - [ ] Dialog
 - [x] Modal
@@ -36,5 +38,8 @@ npm run styleguide
 - [ ] TextArea
 - [x] Tooltip
 - [ ] Switch
+- [ ] List
+- [ ] SelectableList
 - [ ] Table
 - [ ] Form
+- [ ] Typeahead
