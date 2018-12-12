@@ -1,8 +1,9 @@
 import React from 'react'
-import IntersectionObserver from 'intersection-observer'
+import hoistNonReactStatics from 'hoist-non-react-statics'
+require('intersection-observer')
 
-const withIntersectionObserver = Component =>
-  class extends React.PureComponent {
+const withIntersectionObserver = WrappedComponent => {
+  class Lazy extends React.PureComponent {
     constructor(props) {
       super(props)
       this.state = {
@@ -30,7 +31,7 @@ const withIntersectionObserver = Component =>
         this.handleObserverUpdate,
         this._options
       )
-      this._observer.observer(this._wrapper)
+      this._observer.observe(this._wrapper)
     }
 
     componentWillUnmount() {
@@ -41,10 +42,22 @@ const withIntersectionObserver = Component =>
     render() {
       return (
         <div ref={el => (this._wrapper = el)}>
-          <Component intersecting={this.state.intersecting} {...this.props} />
+          <WrappedComponent
+            intersecting={this.state.intersecting}
+            {...this.props}
+          />
         </div>
       )
     }
   }
+
+  Lazy.displayName = `Lazy(${getDisplayName(WrappedComponent)})`
+  hoistNonReactStatics(Lazy, WrappedComponent)
+  return Lazy
+}
+
+function getDisplayName(WrappedComponent) {
+  return WrappedComponent.displayName || WrappedComponent.name || 'Component'
+}
 
 export default withIntersectionObserver

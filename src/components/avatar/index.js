@@ -36,7 +36,7 @@ const Avatar = props => {
     return (
       <Container>
         <Element {...props}>
-          <Image source={props.image} />
+          <Image src={props.image} />
         </Element>
         {props.showName && <Text {...props}>{props.name}</Text>}
       </Container>
@@ -51,7 +51,7 @@ const Avatar = props => {
   } else {
     return (
       <Element {...props}>
-        <Image source={props.image} />
+        <Image src={props.image} />
       </Element>
     )
   }
