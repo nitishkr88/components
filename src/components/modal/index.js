@@ -1,96 +1,89 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
 
-const zIndexes = {
-  backdrop: 20,
-  overlay: 30
+import Portal from './_portal'
+
+const isReact16 = ReactDOM.createPortal !== undefined
+
+const getCreatePortal = () =>
+  isReact16
+    ? ReactDOM.createPortal
+    : ReactDOM.unstable_renderSubtreeIntoContainer
+
+function getParentElement(parentSelector) {
+  return parentSelector()
 }
 
 class Modal extends React.Component {
-  constructor(props) {
-    super(props)
-    this._mountElem = document.createElement('div')
-    this._contentElem = null
+  componentDidMount() {
+    if (!isReact16) {
+      this.node = document.createElement('div')
+    }
+    const parent = getParentElement(this.props.parentSelector)
+    parent.appendChild(this.node)
+
+    !isReact16 && this.renderPortal(this.props)
   }
 
-  componentDidMount() {
-    document.body.appendChild(this._mountElem)
-    document.addEventListener('keydown', this.handleKeyDown)
+  componentDidUpdate(prevProps) {
+    const { isOpen } = this.props
+
+    // Stop unnecessary renders if modal is already closed
+    if (!prevProps.isOpen && !isOpen) return
+
+    !isReact16 && this.renderPortal(this.props)
   }
 
   componentWillUnmount() {
-    document.body.removeChild(this._mountElem)
-    document.removeEventListener('keydown', this.handleKeyDown)
+    if (!this.node || !this.portal) return
+    this.removePortal()
   }
 
-  handleKeyDown = evt => {
-    const { open, onClose, closeOnEscape } = this.props
-    const escPressed = evt.which === 27
-    if (open && closeOnEscape && escPressed) {
-      evt.preventDefault()
-      onClose()
-    }
+  removePortal = () => {
+    !isReact16 && ReactDOM.unmountComponentAtNode(this.node)
+    const parent = getParentElement(this.props.parentSelector)
+    parent.removeChild(this.node)
   }
 
-  handleMouseDown = evt => {
-    const { open, onClose, closeOnBackdropClick } = this.props
-    const clickedOnBackdrop =
-      this._contentElem && !this._contentElem.contains(evt.target)
-    if (open && closeOnBackdropClick && clickedOnBackdrop) {
-      onClose()
-    }
+  portalRef = ref => {
+    this.portal = ref
+  }
+
+  renderPortal = props => {
+    const createPortal = getCreatePortal()
+    const portal = createPortal(this, <Portal {...props} />, this.node)
+    this.portalRef(portal)
   }
 
   render() {
-    const { children, open } = this.props
-    let content = null
+    if (!isReact16) return
 
-    if (open) {
-      content = (
-        <Modal.Backdrop onMouseDown={this.handleMouseDown}>
-          <Modal.Element ref={el => (this._contentElem = el)}>
-            {children}
-          </Modal.Element>
-        </Modal.Backdrop>
-      )
-      return ReactDOM.createPortal(content, this._mountElem)
+    if (!this.node && isReact16) {
+      this.node = document.createElement('div')
     }
 
-    return content
+    const createPortal = getCreatePortal()
+    return createPortal(<Portal {...this.props} />, this.node)
   }
 }
 
-Modal.Backdrop = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  z-index: ${zIndexes.backdrop};
-  background: rgba(0, 0, 0, 0.7);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`
-
-Modal.Element = styled.div`
-  flex: none;
-  z-index: ${zIndexes.overlay};
-`
 
 Modal.propTypes = {
   closeOnBackdropClick: PropTypes.bool.isRequired,
   closeOnEscape: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
-  open: PropTypes.bool.isRequired
+  isOpen: PropTypes.bool.isRequired,
+  parentSelector: PropTypes.func,
+  bodyOpenClassName: PropTypes.string
 }
 
 Modal.defaultProps = {
   closeOnBackdropClick: true,
   closeOnEscape: true,
-  open: false
+  isOpen: false,
+  parentSelector: () => document.body,
+  bodyOpenClassName: 'Modal__Body--open'
 }
 
 export default Modal

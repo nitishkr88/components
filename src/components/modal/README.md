@@ -16,7 +16,7 @@ class ModalExample extends React.Component {
     return (
       <div>
         <Button onClick={this.toggleOpen}>Show Modal</Button>
-        <Modal open={this.state.isOpen} onClose={this.toggleOpen}>
+        <Modal isOpen={this.state.isOpen} onClose={this.toggleOpen}>
           <div
             style={{
               background: 'white',
