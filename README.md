@@ -29,7 +29,7 @@ npm run styleguide
 - [ ] Heading
 - [x] Button
 - [ ] Dropdown
-- [ ] Popover
+- [x] Popover
 - [ ] Breadcrumb
 - [ ] Dialog
 - [x] Modal
