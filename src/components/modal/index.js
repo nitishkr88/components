@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 
-import Portal from './_portal'
+import Portal from './_modalPortal'
 
 const isReact16 = ReactDOM.createPortal !== undefined
 

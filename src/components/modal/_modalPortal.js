@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 import * as classList from '../../_utils/classList'
 
 const ESC_KEY = 27
@@ -68,10 +68,17 @@ class Portal extends React.Component {
         <Portal.Element ref={el => (this._contentElem = el)}>
           {this.props.children}
         </Portal.Element>
+        <NoScroller />
       </Portal.Backdrop>
     )
   }
 }
+
+const NoScroller = createGlobalStyle`
+  body {
+    overflow: hidden;
+  }
+`
 
 Portal.Backdrop = styled.div`
   position: fixed;
