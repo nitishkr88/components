@@ -64,6 +64,7 @@ const Container = styled.div`
 `
 
 const Element = styled.div`
+  position: relative;
   width: ${props => sizes[props.size]};
   height: ${props => sizes[props.size]};
 
@@ -81,6 +82,11 @@ const Element = styled.div`
   margin-right: ${props => (props.name ? spaces.xsmall : null)};
 
   img {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
     height: 100%;
     width: 100%;
   }
