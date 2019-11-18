@@ -8,7 +8,8 @@ import {
   Radio,
   Spinner,
   TextInput,
-  Tooltip
+  Tooltip,
+  Grid
 } from './components'
 
 export {
@@ -21,5 +22,6 @@ export {
   Radio,
   Spinner,
   TextInput,
-  Tooltip
+  Tooltip,
+  Grid
 }

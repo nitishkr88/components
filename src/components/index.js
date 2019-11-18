@@ -8,6 +8,7 @@ import Radio from './radio'
 import Spinner from './spinner'
 import TextInput from './text-input'
 import Tooltip from './tooltip'
+import { Grid } from './layouts'
 
 export {
   Avatar,
@@ -19,5 +20,6 @@ export {
   Radio,
   Spinner,
   TextInput,
-  Tooltip
+  Tooltip,
+  Grid
 }
