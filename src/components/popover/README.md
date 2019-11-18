@@ -1,4 +1,6 @@
 ```jsx
+import Button from '../button'
+
 class SimplePopover extends React.Component {
   constructor() {
     super()

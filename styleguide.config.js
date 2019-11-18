@@ -1,4 +1,11 @@
+const path = require('path')
+
 var config = {
+  components: 'src/components/**/index.js',
+  styleguideComponents: {
+    Wrapper: path.join(__dirname, 'src/StyleGuideWrapper')
+  },
+  webpackConfig: require('./webpack.config.js'),
   template: {
     head: {
       links: [

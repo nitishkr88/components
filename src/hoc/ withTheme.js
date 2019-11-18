@@ -29,5 +29,5 @@ function getDisplayName(WrappedComponent) {
   return WrappedComponent.displayName || WrappedComponent.name || 'Component'
 }
 
-export { Provider, Consumer }
+export { Provider as ThemeProvider, Consumer }
 export default withTheme

@@ -1,3 +1,5 @@
+import GlobalStyle from './styles'
+
 import {
   Avatar,
   Checkbox,
@@ -14,6 +16,7 @@ import {
 } from './components'
 
 export {
+  GlobalStyle,
   Avatar,
   Checkbox,
   Icon,

@@ -1,4 +1,6 @@
 ```jsx
+import Button from '../button'
+
 class ModalExample extends React.Component {
   constructor() {
     super()
