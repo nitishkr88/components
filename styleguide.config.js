@@ -22,7 +22,8 @@ var config = {
     '**/components/__tests__/**',
     '**/components/index.js',
     '**/components/_utils/**',
-    '**/**/_*.js'
+    '**/**/_*.js',
+    '**/components/_*/**'
   ]
 }
 

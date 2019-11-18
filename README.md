@@ -43,3 +43,4 @@ npm run styleguide
 - [ ] Table
 - [ ] Form
 - [ ] Typeahead
+- [x] Grid

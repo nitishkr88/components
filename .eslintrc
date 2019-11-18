@@ -2,6 +2,8 @@
   "extends": "react-app",
   "rules": {
     "jsx-a11y/href-no-hash": 0,
-    "semi": ["error", "never"]
+    "semi": ["error", "never"],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
   }
 }
