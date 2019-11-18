@@ -8,7 +8,7 @@ import Radio from './radio'
 import Spinner from './spinner'
 import TextInput from './text-input'
 import Tooltip from './tooltip'
-import { Grid } from './layouts'
+import { Flex, Grid } from './layouts'
 
 export {
   Avatar,
@@ -21,5 +21,6 @@ export {
   Spinner,
   TextInput,
   Tooltip,
+  Flex,
   Grid
 }

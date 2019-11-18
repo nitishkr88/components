@@ -9,6 +9,7 @@ import {
   Spinner,
   TextInput,
   Tooltip,
+  Flex,
   Grid
 } from './components'
 
@@ -23,5 +24,6 @@ export {
   Spinner,
   TextInput,
   Tooltip,
+  Flex,
   Grid
 }

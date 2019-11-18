@@ -28,7 +28,7 @@ npm run styleguide
 - [ ] Text
 - [ ] Heading
 - [x] Button
-- [ ] Dropdown
+- [ ] Select
 - [x] Popover
 - [ ] Breadcrumb
 - [ ] Dialog
@@ -44,3 +44,4 @@ npm run styleguide
 - [ ] Form
 - [ ] Typeahead
 - [x] Grid
+- [x] Flex

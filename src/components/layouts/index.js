@@ -1,3 +1,4 @@
+import Flex from './flex'
 import Grid from './grid'
 
-export { Grid }
+export { Flex, Grid }
